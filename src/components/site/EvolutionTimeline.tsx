@@ -94,7 +94,7 @@ export function EvolutionTimeline() {
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="eyebrow text-[#F48CA7] font-semibold tracking-[0.3em] text-xs uppercase block mb-2"
         >
-          OUR JOURNEY
+          HISTORICAL MILESTONES
         </motion.span>
 
         <motion.h2
@@ -104,7 +104,7 @@ export function EvolutionTimeline() {
           transition={{ duration: 0.8, ease: "easeInOut", delay: 0.1 }}
           className="text-3xl md:text-5xl font-bold font-heading text-[#1F1F1F] tracking-tight"
         >
-          Our Evolution
+          Our Journey
         </motion.h2>
       </div>
 

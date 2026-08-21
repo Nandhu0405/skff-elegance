@@ -49,9 +49,10 @@ const cats = [
 
 function Fragrances() {
   const getFragranceId = (h: string) => {
-    if (h.includes("Fine")) return "fine-fragrances";
-    if (h.includes("Personal")) return "personal-care";
     if (h.includes("Home")) return "home-care";
+    if (h.includes("Personal")) return "personal-care";
+    if (h.includes("Fabric")) return "fabric-care";
+    if (h.includes("Fine")) return "fine-fragrances";
     return undefined;
   };
 

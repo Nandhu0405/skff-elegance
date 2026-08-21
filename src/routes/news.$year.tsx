@@ -23,7 +23,7 @@ import alignWorkshop from "@/assets/align-workshop.jpg";
 export const Route = createFileRoute("/news/$year")({
   head: ({ params }) => ({
     meta: [
-      { title: `${params.year} — SKFF Historical Evolution` },
+      { title: `${params.year} — SKFF Historical Journey` },
       { name: "description", content: `Discover SKFF's historical milestone in ${params.year}.` },
     ],
   }),

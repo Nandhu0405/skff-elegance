@@ -91,7 +91,7 @@ function About() {
       </div>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 2 & 3 — Our Evolution (Video + Timeline)
+          SECTION 2 & 3 — Our Journey (Video + Timeline)
           ════════════════════════════════════════════════════════════════ */}
       <div id="evolution">
         <AboutEvolutionSection />
@@ -101,7 +101,7 @@ function About() {
       {/* ════════════════════════════════════════════════════════════════
           SECTION 4 — Our Commitments (Vision, Passion, Integrity, Innovation)
           ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #FFFBF9 0%, #FFF5F7 100%)" }}>
+      <section id="commitments" className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #FFFBF9 0%, #FFF5F7 100%)" }}>
         <Particles count={12} />
         {/* Gradient blob */}
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none animate-blob-delay-2" style={{ background: "radial-gradient(circle, rgba(244,140,167,0.12) 0%, transparent 70%)", filter: "blur(60px)" }} />
@@ -167,7 +167,7 @@ function About() {
       {/* ════════════════════════════════════════════════════════════════
           SECTION 5 — Facilities (Alternating 2-Column Luxury Layout)
           ════════════════════════════════════════════════════════════════ */}
-      <section id="research" className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #FFF9F7 0%, #FFFBF9 100%)" }}>
+      <section id="infrastructure" className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #FFF9F7 0%, #FFFBF9 100%)" }}>
         <FloralBackdrop density={6} />
         <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-16 relative z-10">
           {/* Section Header */}

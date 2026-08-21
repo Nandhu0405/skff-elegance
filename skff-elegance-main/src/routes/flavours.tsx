@@ -70,10 +70,13 @@ const cats = [
 
 function Flavours() {
   const getCategoryId = (h: string) => {
-    if (h.includes("Confectionery")) return "bakery";
+    if (h.includes("Confectionery")) return "confectionery";
     if (h.includes("Dairy")) return "dairy";
-    if (h.includes("Culinary")) return "savoury";
+    if (h.includes("Bakery")) return "bakery";
+    if (h.includes("Culinary")) return "culinary-savory";
     if (h.includes("Beverages")) return "beverages";
+    if (h.includes("Pharmaceuticals")) return "pharmaceuticals";
+    if (h.includes("Instant")) return "instant-health-drinks";
     return undefined;
   };
 

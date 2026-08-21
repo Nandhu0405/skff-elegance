@@ -22,51 +22,37 @@ export const NAV_ITEMS: NavItem[] = [
     to: "/about",
     label: "About Us",
     children: [
-      { label: "Company Overview", to: "/about", hash: "overview" },
-      { label: "Our History / Evolution", to: "/about", hash: "evolution" },
-      { label: "Research & Innovation", to: "/about", hash: "research" },
-      { label: "Quality & Certifications", to: "/about", hash: "certifications" },
+      { label: "Our Journey", to: "/about", hash: "evolution" },
+      { label: "Our Commitments", to: "/about", hash: "commitments" },
+      { label: "Infrastructure", to: "/about", hash: "infrastructure" },
+      { label: "Certifications", to: "/about", hash: "certifications" },
     ],
   },
   {
     to: "/flavours",
     label: "Flavours",
     children: [
-      { label: "Food & Beverage Flavours", to: "/flavours", hash: "food-beverage" },
-      { label: "Confectionery & Bakery", to: "/flavours", hash: "bakery" },
-      { label: "Dairy & Beverages", to: "/flavours", hash: "dairy" },
-      { label: "Savoury Flavours", to: "/flavours", hash: "savoury" },
+      { label: "Confectionery", to: "/flavours", hash: "confectionery" },
+      { label: "Dairy", to: "/flavours", hash: "dairy" },
+      { label: "Bakery", to: "/flavours", hash: "bakery" },
+      { label: "Culinary & Savory", to: "/flavours", hash: "culinary-savory" },
+      { label: "Beverages", to: "/flavours", hash: "beverages" },
+      { label: "Pharmaceuticals", to: "/flavours", hash: "pharmaceuticals" },
+      { label: "Instant & Health Drinks", to: "/flavours", hash: "instant-health-drinks" },
     ],
   },
   {
     to: "/fragrances",
     label: "Fragrances",
     children: [
-      { label: "Fine Fragrances", to: "/fragrances", hash: "fine-fragrances" },
-      { label: "Personal Care", to: "/fragrances", hash: "personal-care" },
       { label: "Home Care", to: "/fragrances", hash: "home-care" },
-      { label: "Perfume & Fragrance Solutions", to: "/fragrances", hash: "solutions" },
+      { label: "Personal Care", to: "/fragrances", hash: "personal-care" },
+      { label: "Fabric Care", to: "/fragrances", hash: "fabric-care" },
+      { label: "Fine Fragrances", to: "/fragrances", hash: "fine-fragrances" },
     ],
   },
-  {
-    to: "/global-presence",
-    label: "Global Presence",
-    children: [
-      { label: "India", to: "/global-presence", hash: "india" },
-      { label: "SK France", to: "/global-presence", hash: "france" },
-      { label: "SKFFME", to: "/global-presence", hash: "skffme" },
-      { label: "Global Presence / Worldwide Reach", to: "/global-presence", hash: "worldwide" },
-    ],
-  },
-  {
-    to: "/news",
-    label: "News",
-    children: [
-      { label: "Latest News", to: "/news", hash: "latest" },
-      { label: "Events", to: "/news", hash: "events" },
-      { label: "Company Updates", to: "/news", hash: "updates" },
-    ],
-  },
+  { to: "/global-presence", label: "Global Presence" },
+  { to: "/news", label: "News" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -90,6 +76,20 @@ export function Navbar() {
     setOpen(false);
     setActiveDropdown(null);
   }, [location.pathname]);
+
+  // Handle hash navigation on route change or initial load
+  useEffect(() => {
+    if (location.hash) {
+      const hash = location.hash.replace("#", "");
+      const timer = setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, location.hash]);
 
   // Click outside to close dropdown
   useEffect(() => {
@@ -269,31 +269,31 @@ export function Navbar() {
                     className="w-full flex flex-col items-center"
                   >
                     <div className="flex items-center justify-center gap-2 w-full">
-                      <Link
-                        to={item.to}
-                        onClick={() => {
-                          if (!hasChildren) setOpen(false);
-                        }}
-                        className={`text-lg sm:text-xl tracking-[0.16em] uppercase font-light transition-colors ${
-                          active ? "text-[#E85D75] font-medium" : "text-charcoal hover:text-[#E85D75]"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-
-                      {hasChildren && (
+                      {hasChildren ? (
                         <button
                           type="button"
                           onClick={() => toggleMobileSubmenu(item.label)}
-                          className="p-2 text-charcoal/60 hover:text-[#E85D75] transition-colors focus:outline-none"
-                          aria-label={`Toggle ${item.label} submenu`}
+                          className={`text-lg sm:text-xl tracking-[0.16em] uppercase font-light transition-colors flex items-center gap-2 focus:outline-none ${
+                            active ? "text-[#E85D75] font-medium" : "text-charcoal hover:text-[#E85D75]"
+                          }`}
                         >
+                          <span>{item.label}</span>
                           <HiChevronDown
                             className={`w-5 h-5 transition-transform duration-300 ${
-                              isExpanded ? "rotate-180 text-[#E85D75]" : ""
+                              isExpanded ? "rotate-180 text-[#E85D75]" : "text-charcoal/60"
                             }`}
                           />
                         </button>
+                      ) : (
+                        <Link
+                          to={item.to}
+                          onClick={() => setOpen(false)}
+                          className={`text-lg sm:text-xl tracking-[0.16em] uppercase font-light transition-colors ${
+                            active ? "text-[#E85D75] font-medium" : "text-charcoal hover:text-[#E85D75]"
+                          }`}
+                        >
+                          {item.label}
+                        </Link>
                       )}
                     </div>
 

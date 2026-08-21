@@ -167,7 +167,7 @@ export function AboutEvolutionSection() {
             >
               {/* Title Header */}
               <h2 className="text-[32px] sm:text-[40px] lg:text-[44px] font-bold text-[#111111] leading-tight tracking-tight font-sans">
-                Our Evolution
+                Our Journey
               </h2>
 
               {/* Subtitle */}
